@@ -1,5 +1,10 @@
-# getting-0ver-it
 
-A unity remake of Getting Over It with Bennett Foddy - a platformer video game developed by Bennett Foddy.
+# Reinforcement Learning on a Climbing Game in unity
+
+  
+
+This project implements Reinforcement Learning on a getting over it clone using Unity's ml agents.
+Link to the Unity Project this modifies: https://github.com/rossning92/getting-0ver-it
+  
 
 ![Screenshot](./screenshot.jpg)
