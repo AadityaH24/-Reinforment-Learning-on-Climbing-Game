@@ -4,7 +4,8 @@
   
 
 This project implements Reinforcement Learning on a getting over it clone using Unity's ml agents.
-Link to the Unity Project this modifies: https://github.com/rossning92/getting-0ver-it
-  
+WIP
 
+
+Link to the Unity Project this modifies: https://github.com/rossning92/getting-0ver-it
 ![Screenshot](./screenshot.jpg)
