@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour {
         // Transform to world space
         center = Camera.main.ScreenToWorldPoint(center);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
-
+        Debug.Log(mouse);
         // Compute mouseVec for hammer control
         Vector3 mouseVec = Vector3.ClampMagnitude(mouse - center, maxRange);
 
@@ -60,5 +60,9 @@ public class PlayerControl : MonoBehaviour {
         // Update hammer rotation
         hammerHead.rotation = Quaternion.FromToRotation(
             Vector3.right, newHammerPos - body.position);
+
+        if (transform.position.y < -2) {
+            transform.position = new Vector3(-7.05f,-0.2f,0f);;
+        }
     }
 }

@@ -5,7 +5,6 @@ public class Head : MonoBehaviour {
     public Sprite blinkSprite;
 
     void Start() { StartCoroutine(Blink()); }
-
     void Update() {
         Vector3 mouseDir =
             new Vector3(Input.mousePosition.x / Screen.width * 2.0f - 1.0f,
