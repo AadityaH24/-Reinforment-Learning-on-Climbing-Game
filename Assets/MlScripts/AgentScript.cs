@@ -22,6 +22,7 @@ public class AgentScript : Agent
         startTime = 100f;
     }
     public override void OnEpisodeBegin(){
+        Debug.Log("Begining new episode");
         body.position = new Vector3(-7.05f,1f,0f);
     }
     public override void CollectObservations(VectorSensor sensor)
@@ -106,14 +107,18 @@ public class AgentScript : Agent
         float reward = currentX * 0.4f + currentY * 0.6f;
         AddReward(reward);
         startTime -= Time.deltaTime;
+        // Debug time based episode setting
+        // Debug.Log("start time" + startTime);
+        // Debug.Log(Time.time);
+        // Debug.Log(GetCumulativeReward());
         if(startTime <= 0){
-            Debug.Log("Episode Ended");
+            Debug.Log("Episode Ended. \t Reward" + GetCumulativeReward());
             startTime = 400;
             EndEpisode();
         }
         if (body.position.y < -3) {
             AddReward(-100f);
-            Debug.Log("Episode Ended");
+            Debug.Log("Episode Ended. \t Reward" + GetCumulativeReward());
             EndEpisode();
         }
     }
