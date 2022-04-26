@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
-public class AgentScript : Agent
+public class AgentScript2 : Agent
 {
     // [SerializeField] private Transform targetTransform;
     public Transform hammerHead;
@@ -23,7 +23,7 @@ public class AgentScript : Agent
     }
     public override void OnEpisodeBegin(){
         Debug.Log("Begining new episode");
-        body.position = new Vector3(-7.05f,1f,0f);
+        body.position = new Vector3(7.66f,-0.02f,0);
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -104,7 +104,7 @@ public class AgentScript : Agent
         // }
         // prevY = currentY;
         // SetReward(currentY);
-        float reward = currentX * 0.4f + currentY * 0.6f - 100;
+        float reward = currentY;
         AddReward(reward);
         startTime -= Time.deltaTime;
         // Debug time based episode setting

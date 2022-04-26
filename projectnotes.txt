@@ -23,3 +23,17 @@ Current changes:
     now using batch size of 256 and a buffer size of 1000000
     new id = sac2
     very slow but it runs
+
+--26th/04
+10:42 changed only the AgentScript.cs file
+    id = neg1
+    Changed reward at every time step to 0.4 * xpos + 06 * ypos - 100
+
+20:31 made new scene that is a copy of current scene and placed agent between two rocks
+    running default on this
+    agent script for scene 2 is agent Script2
+    removed xdir reward
+    id = newPpo1
+    model didnt move much
+    changed max range to 4
+    id = newPpo2
