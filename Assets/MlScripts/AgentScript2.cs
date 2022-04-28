@@ -10,6 +10,7 @@ public class AgentScript2 : Agent
     // [SerializeField] private Transform targetTransform;
     public Transform hammerHead;
     public Transform body;
+    public Transform target;
 
     public float maxRange = 2.0f;
 
@@ -24,10 +25,16 @@ public class AgentScript2 : Agent
     public override void OnEpisodeBegin(){
         Debug.Log("Begining new episode");
         body.position = new Vector3(7.66f,-0.02f,0);
+        hammerHead.position = new Vector3(7.66f,-0.02f,0);
     }
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(body.position);
+        sensor.AddObservation(hammerHead.position);
+        // get distance between target and body
+        float distance = Vector3.Distance(body.position, target.position);
+        
+        sensor.AddObservation(distance);
         // sensor.AddObservation(targetTransform.position);
 
     }
@@ -50,6 +57,7 @@ public class AgentScript2 : Agent
         center = Camera.main.ScreenToWorldPoint(center);
         // mouse = Camera.main.ScreenToWorldPoint(mouse);
         mouse = new Vector3(moveX, moveY, 0);
+        mouse *= 10;
 
         // Compute mouseVec for hammer control
         Vector3 mouseVec = Vector3.ClampMagnitude(mouse - center, maxRange);
@@ -117,10 +125,26 @@ public class AgentScript2 : Agent
             EndEpisode();
         }
         if (body.position.y < -3) {
-            AddReward(-100f);
+            AddReward(-500f);
             Debug.Log("Episode Ended. \t Reward" + GetCumulativeReward());
             EndEpisode();
         }
+        // if body and hammer are too far away reset
+        // Get distance between two vectors
+        float distance1 = Vector3.Distance(body.position, hammerHead.position);
+        // Debug.Log("Distance: " + distance1);
+        if(distance1 > 3){
+            Debug.Log("hammer dist");
+            AddReward(-50f);
+            EndEpisode();
+        }
     }
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.gameObject.CompareTag("Goal")){
+    //         AddReward(100f);
+    //         Debug.Log("Episode Ended. \t Reward" + GetCumulativeReward());
+    //         EndEpisode();
+    //     }
+    // }
 
 }

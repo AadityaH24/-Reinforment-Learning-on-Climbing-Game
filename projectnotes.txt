@@ -37,3 +37,20 @@ Current changes:
     model didnt move much
     changed max range to 4
     id = newPpo2
+
+
+28th
+10:38 added a goal layer and a goal location at the top of the mountain.
+        added on trigger event in agent code for goal reward of 100 and ending episode and deleted some ground on the left
+        trigger script is set on the child
+        goalPpo1
+
+11:52 ensure the hammer doesnt leave the player and gets stuck
+    add hammer and goal distance as observations vector size is 7
+    max range =4 goalPpo2
+
+13:20 set epsilon to 0.4, sfchel;udfe is constant. mnum layers = 3
+13:40 fix the hammer thing and set shceudle to linrear
+    goalPpo5 clamp range of inputs is higher now
+
+3:06 lr= 0.03, ep =0.4, schedule = constant for both
