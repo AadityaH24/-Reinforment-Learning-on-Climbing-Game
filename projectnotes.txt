@@ -54,3 +54,5 @@ Current changes:
     goalPpo5 clamp range of inputs is higher now
 
 3:06 lr= 0.03, ep =0.4, schedule = constant for both
+
+20:08 sac
